@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoubleTech | Poste & Servizi Genzano</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: #0047AB;
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: white;
+      border-radius: 10px;
+      padding: 6px;
+    }
+
+    .brand-text strong {
+      font-size: 1.4rem;
+      display: block;
+    }
+
+    .brand-text span {
+      color: #FFD700;
+      font-weight: bold;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0047AB, #1c75ff, #7cc6ff);
+      color: white;
+      padding: 80px 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      background: #E10600;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #0047AB;
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      color: #0047AB;
+      margin-bottom: 30px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-top: 5px solid #0047AB;
+      text-align: center;
+    }
+
+    .card img {
+      margin: 10px auto 0;
+      width: 120px;
+    }
+
+    .appointments {
+      background: #eef4ff;
+    }
+
+    .appointment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .appointment-card {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-top: 5px solid #0047AB;
+      text-align: center;
+    }
+
+    .appointment-btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      background: #0047AB;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .info-box {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-top: 5px solid #0047AB;
+      max-width: 900px;
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+    .info-box ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .pdf-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #E10600;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .spedizioni-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    .spedizioni-box {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-top: 5px solid #0047AB;
+    }
+
+    .logo-carousel {
+      overflow: hidden;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 15px 0;
+    }
+
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 18s linear infinite;
+    }
+
+    .logo-track img {
+      width: 120px;
+      height: 70px;
+      object-fit: contain;
+      margin: 0 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .hours {
+      list-style: none;
+    }
+
+    .hours li {
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 30px;
+    }
+
+    .callbtn {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #0047AB;
+      color: white;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid,
+      .services,
+      .appointment-grid,
+      .spedizioni-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <img src="foto-vicino-doubletech.jpg" alt="Logo DoubleTech">
+        <div class="brand-text">
+          <strong>DoubleTech</strong>
+          <span>Poste & Servizi</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="#servizi">Servizi</a>
+        <a href="#spid">SPID</a>
+        <a href="#caf">CAF</a>
+        <a href="#appuntamenti">Appuntamenti</a>
+        <a href="#spedizioni">Spedizioni</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Posta privata e servizi al cittadino</h1>
+
+        <p>
+          Pagamenti, spedizioni, SPID, CAF, Patronato e servizi digitali a Genzano di Roma.
+        </p>
+
+        <a href="#appuntamenti" class="btn btn-primary">Prenota appuntamento</a>
+        <a href="tel:+390689830389" class="btn btn-secondary">Chiama ora</a>
+      </div>
+
+      <div>
+        <img src="vetrina-negozio.jpg" alt="Vetrina DoubleTech">
+      </div>
+    </div>
+  </section>
+
+  <section id="servizi">
+    <h2 class="section-title">I nostri servizi</h2>
+
+    <div class="services">
+
+      <div class="card">
+        <h3>Pagamenti</h3>
+        <p>PagoPA, bollettini, F24 e bonifici.</p>
+      </div>
+
+      <div class="card">
+        <h3>Biglietti</h3>
+        <p>Treni, eventi, spettacoli e partite.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ricariche</h3>
+        <p>Ricariche telefoniche e servizi digitali.</p>
+      </div>
+
+      <div class="card">
+        <h3>SPID</h3>
+        <p>Attivazione identità digitale.</p>
+        <img src="infocert-logo.jpg" alt="InfoCert">
+      </div>
+
+      <div class="card">
+        <h3>Firma Digitale</h3>
+        <p>Richiesta firma digitale.</p>
+        <img src="infocert-logo.jpg" alt="InfoCert">
+      </div>
+
+      <div class="card">
+        <h3>CAF e Patronato</h3>
+        <p>ISEE, 730, NASPI e altre pratiche.</p>
+      </div>
+
+      <div class="card">
+        <h3>Luce e Gas</h3>
+        <p>Switch, volture e subentro.</p>
+      </div>
+
+      <div class="card">
+        <h3>Telepass</h3>
+        <p>Attivazione e gestione Telepass.</p>
+      </div>
+
+      <div class="card">
+        <h3>PEC</h3>
+        <p>Attivazione Posta Elettronica Certificata.</p>
+      </div>
+
+      <div class="card">
+        <h3>Smartbox</h3>
+        <p>Vendita Smartbox viaggi ed esperienze.</p>
+        <img src="smartbox-logo.jpg" alt="Smartbox">
+      </div>
+
+    </div>
+  </section>
+
+  <section id="spid">
+    <h2 class="section-title">Attivazione SPID</h2>
+
+    <div class="info-box">
+      <p><strong>Documenti necessari per attivare lo SPID:</strong></p>
+
+      <ul>
+        <li>Carta di Identità oppure Patente</li>
+        <li>Tessera Sanitaria</li>
+        <li>Email personale</li>
+        <li>Numero di telefono</li>
+      </ul>
+
+      <a class="appointment-btn" href="https://calendly.com/doubletechgenzano/spid" target="_blank">
+        Prenota appuntamento SPID
+      </a>
+    </div>
+  </section>
+
+  <section id="caf">
+    <h2 class="section-title">CAF e Patronato</h2>
+
+    <div class="info-box">
+      <p>Consulta tutte le pratiche CAF e Patronato disponibili.</p>
+
+      <a class="pdf-btn" href="caf-patronato-pratiche.pdf" target="_blank">
+        Scarica il PDF con tutte le pratiche
+      </a>
+
+      <br><br>
+
+      <a class="appointment-btn" href="https://calendly.com/doubletechgenzano/caf-e-patronato" target="_blank">
+        Prenota appuntamento CAF e Patronato
+      </a>
+    </div>
+  </section>
+
+  <section class="appointments" id="appuntamenti">
+    <h2 class="section-title">Prenota un appuntamento</h2>
+
+    <div class="appointment-grid">
+
+      <div class="appointment-card">
+        <h3>SPID</h3>
+        <a class="appointment-btn" href="https://calendly.com/doubletechgenzano/spid" target="_blank">Prenota</a>
+      </div>
+
+      <div class="appointment-card">
+        <h3>Firma Digitale</h3>
+        <a class="appointment-btn" href="https://calendly.com/doubletechgenzano/firma-digitale" target="_blank">Prenota</a>
+      </div>
+
+      <div class="appointment-card">
+        <h3>CAF e Patronato</h3>
+        <a class="appointment-btn" href="https://calendly.com/doubletechgenzano/caf-e-patronato" target="_blank">Prenota</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="spedizioni">
+    <h2 class="section-title">Spedizioni e Punti di Presa</h2>
+
+    <div class="spedizioni-grid">
+
+      <div class="spedizioni-box">
+        <h3>Spedizioni con i nostri corrieri</h3>
+
+        <div class="logo-carousel">
+          <div class="logo-track">
+            <img src="fedex-logo.jpg" alt="FedEx">
+            <img src="brt-logo.jpg" alt="BRT">
+            <img src="sda-logo.jpg" alt="SDA">
+            <img src="ups-logo.jpg" alt="UPS">
+
+            <img src="fedex-logo.jpg" alt="FedEx">
+            <img src="brt-logo.jpg" alt="BRT">
+            <img src="sda-logo.jpg" alt="SDA">
+            <img src="ups-logo.jpg" alt="UPS">
+          </div>
+        </div>
+      </div>
+
+      <div class="spedizioni-box">
+        <h3>Punto di presa pacchi</h3>
+
+        <p style="font-size:14px;color:#6b7280;margin-bottom:15px;">
+          Amazon disponibile solo come punto di presa pacchi
+        </p>
+
+        <div class="logo-carousel">
+          <div class="logo-track">
+            <img src="amazon-logo.jpg" alt="Amazon">
+            <img src="inpost-logo.jpg" alt="InPost">
+            <img src="brt-logo.jpg" alt="BRT">
+            <img src="gls-logo.jpg" alt="GLS">
+            <img src="fedex-logo.jpg" alt="FedEx">
+
+            <img src="amazon-logo.jpg" alt="Amazon">
+            <img src="inpost-logo.jpg" alt="InPost">
+            <img src="brt-logo.jpg" alt="BRT">
+            <img src="gls-logo.jpg" alt="GLS">
+            <img src="fedex-logo.jpg" alt="FedEx">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contatti">
+    <h2 class="section-title">Contatti</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+        <p><strong>Indirizzo</strong><br>
+          Via Sebastiano Silvestri 118<br>
+          00045 Genzano di Roma
+        </p>
+
+        <p><strong>Telefono</strong><br>
+          <a href="tel:+390689830389">06 89830389</a>
+        </p>
+
+        <p><strong>WhatsApp</strong><br>
+          <a href="https://wa.me/393664408917">366 440 8917</a>
+        </p>
+
+        <p><strong>Email</strong><br>
+          <a href="mailto:doubletechgenzano@gmail.com">doubletechgenzano@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="contact-box">
+        <h3>Orari</h3>
+
+        <ul class="hours">
+          <li>Lunedì 09:00-13:00 / 16:00-19:00</li>
+          <li>Martedì 09:00-13:00 / 16:00-19:00</li>
+          <li>Mercoledì 09:00-13:00 / 16:00-19:00</li>
+          <li>Giovedì 09:00-13:00</li>
+          <li>Venerdì 09:00-13:00 / 16:00-19:00</li>
+          <li>Sabato 09:00-13:00</li>
+          <li>Domenica Chiuso</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 DoubleTech - Poste & Servizi - Genzano di Roma
+  </footer>
+
+  <a class="callbtn" href="tel:+390689830389" aria-label="Chiama ora">📞</a>
+  <a class="whatsapp" href="https://wa.me/393664408917" aria-label="WhatsApp">💬</a>
+
+</body>
+</html>
+
